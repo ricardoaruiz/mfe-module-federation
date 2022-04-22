@@ -1,10 +1,8 @@
 const { merge } = require('webpack-merge')
-const packageJson = require('../package.json')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 const commonConfig = require('./webpack.common')
+const packageJson = require('../package.json')
 
 const devConfig = {
   mode: 'development',
@@ -13,12 +11,6 @@ const devConfig = {
     historyApiFallback: true
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', 'public/index.html'),
-      filename: 'index.html',
-      title: 'MFs Module Federation',
-      inject: 'body'
-    }),
     new ModuleFederationPlugin({
       name: 'MF_Container',
       remotes: {

@@ -1,5 +1,7 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
+const packageJson = require('../package.json')
+
 module.exports = {
   module: {
     rules: [
@@ -18,5 +20,17 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'MF_Marketing',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './MarketingApp': './src/bootstrap.jsx'
+      },
+      shared: {
+        ...packageJson.dependencies
+      }
+    })
+  ]
 }
