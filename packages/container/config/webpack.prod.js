@@ -18,7 +18,7 @@ module.exports = (env) => {
       new ModuleFederationPlugin({
         name: 'MF_Container',
         remotes: {
-          marketing: `MF_Marketing@${env.MFS_DOMAIN}/marketing/remoteEntry.js`
+          marketing: `MF_Marketing@${env.MFS_DOMAIN}/marketing/latest/remoteEntry.js`
         },
         shared: {
           ...packageJson.dependencies
