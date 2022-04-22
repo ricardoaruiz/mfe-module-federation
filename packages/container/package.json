@@ -2,8 +2,8 @@
   "name": "container",
   "version": "1.0.0",
   "scripts": {
-    "start": "yarn clear && webpack serve --config ./config/webpack.dev.js",
-    "build": "yarn clear && webpack --config ./config/webpack.prod.js",
+    "start": "yarn clear && webpack serve --config ./config/webpack.dev.js --env MFS_DOMAIN=http://localhost",
+    "build": "yarn clear && webpack --config ./config/webpack.prod.js --env MFS_DOMAIN=https://d3kltno8wtrldl.cloudfront.net",
     "clear": "rm -rf dist"
   },
   "dependencies": {
