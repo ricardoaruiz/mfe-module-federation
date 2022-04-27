@@ -7,17 +7,17 @@ const commonConfig = require('./webpack.common')
 const devConfig = {
   mode: 'development',
   output: {
-    publicPath: 'http://localhost:8081/',
+    publicPath: 'http://localhost:8082/',
   },
   devServer: {
-    port: 8081,
+    port: 8082,
     historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', 'public/index.html'),
       filename: 'index.html',
-      title: 'Marketing MF',
+      title: 'Auth MF',
       inject: 'body'
     })
   ]
