@@ -4,8 +4,10 @@ import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import App from './App'
 
-const mount = (el, { onNavigate, defaultHistory }) => {
-  const history = defaultHistory || createMemoryHistory()
+const mount = (el, { mountPath, onNavigate, defaultHistory }) => {
+  const history = defaultHistory || createMemoryHistory({
+    initialEntries: [mountPath]
+  })
 
   onNavigate && history.listen(onNavigate)
 
