@@ -9,6 +9,7 @@ const generateClassName = createGenerateClassName({
 })
 
 const App = ({ history, onSignin }) => {
+  
   return (
     <StylesProvider generateClassName={generateClassName}>
       <Router history={history}>
