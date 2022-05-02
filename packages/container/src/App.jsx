@@ -9,7 +9,6 @@ const generateClassName = createGenerateClassName({
 })
 
 const App = () => {
-  
   const [isSignedIn, setIsSignedIn] = React.useState(false)
 
   return (
