@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-export const useMicrofrontend = (mount) => {
+export const useMicrofrontend = (mount, callbacks) => {
   
   const history = useHistory()
   const mfElementRoot = React.useRef(null)
@@ -13,7 +13,8 @@ export const useMicrofrontend = (mount) => {
       mountPath: currentPathName,
       onNavigate: ({ pathname: nextPathName }) => {
         currentPathName !== nextPathName && history.push(nextPathName)
-      }
+      },
+      onSignin: callbacks?.onSignin || undefined
     })
     history.listen(onParentNavigate)
   }, [])
